@@ -19,10 +19,11 @@
                 android:adjustViewBounds="true"
                 android:layout_margin="8dp"
                 android:scaleType="centerCrop"
-
+                tools:src="@drawable/placeholder_webp"
                 android:contentDescription="@string/news_photograph"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
 
@@ -33,10 +34,9 @@
                 android:layout_gravity="bottom|start"
                 android:layout_margin="@dimen/text_margin"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/tvSource"
+                app:layout_constraintTop_toBottomOf="@id/tvAuthor"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:textSize="14sp"
                 tools:text="Strange DNA found in the desert offers lessons in the hunt for Mars life - The Washington Post" />
 
@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/grey"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@id/ivImage"
                     app:layout_constraintTop_toTopOf="parent"
@@ -57,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/grey"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tvSource"
                     tools:text="12h" />
@@ -67,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/grey"
                     app:layout_constraintStart_toEndOf="@id/tvAuthor"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="CNN" />
