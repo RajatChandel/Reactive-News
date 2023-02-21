@@ -1,8 +1,12 @@
 package `in`.rchandel.reactivenews.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class Article(
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @SerializedName("source") var source: Source? = Source(),
     @SerializedName("author") var author: String? = null,
     @SerializedName("title") var title: String? = null,
