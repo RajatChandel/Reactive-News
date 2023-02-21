@@ -11,6 +11,9 @@ interface NewsDao {
     @Insert
     suspend fun addArticles(articles: List<Article>)
 
+    @Insert
+    suspend fun addArticle(articles: Article)
+
     @Query("SELECT * From Article")
     suspend fun getArticles() : List<Article>
 }

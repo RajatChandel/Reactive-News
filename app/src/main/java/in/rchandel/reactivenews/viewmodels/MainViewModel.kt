@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.launch
 
-class MainViewModel(val repository: ArticleRepository) : ViewModel() {
+class MainViewModel(private val repository: ArticleRepository) : ViewModel() {
 
     val articleLiveData : LiveData<List<Article>>
     get() = repository.articles
@@ -17,5 +17,11 @@ class MainViewModel(val repository: ArticleRepository) : ViewModel() {
          viewModelScope.launch {
             repository.getArticles()
          }
+    }
+
+    fun addArticle(article: Article) {
+        viewModelScope.launch {
+            repository.addArticle(article)
+        }
     }
 }
