@@ -35,11 +35,9 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        compose true
+        viewBinding true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.1.1'
-    }
+
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -80,6 +78,9 @@ dependencies {
     def lifecycle_version = "2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
+    def glide_version = "4.14.2"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
 
 

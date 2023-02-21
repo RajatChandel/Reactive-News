@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reactive News</string>
+    <string name="news_photograph">News photograph</string>
 </resources>
