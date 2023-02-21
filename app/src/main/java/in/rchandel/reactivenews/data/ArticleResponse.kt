@@ -2,7 +2,7 @@ package `in`.rchandel.reactivenews.data
 
 import com.google.gson.annotations.SerializedName
 
-data class HeadlineResponse(
+data class ArticleResponse(
 
     @SerializedName("status") var status: String? = null,
     @SerializedName("totalResults") var totalResults: Int? = null,
