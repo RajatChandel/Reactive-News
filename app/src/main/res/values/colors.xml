@@ -13,4 +13,10 @@
     <color name="mint_cream">#F0F7F4</color>
     <color name="middle_blue">#7EBDC2</color>
     <color name="grey">#686767</color>
+
+    <color name="shimmer">#B8B6B6</color>
+    <color name="text_heading">#131314</color>
+    <color name="text_second">#686767</color>
+    <color name="background_full">#FFFFFF</color>
+    <color name="background_card">#FFFFFF</color>
 </resources>

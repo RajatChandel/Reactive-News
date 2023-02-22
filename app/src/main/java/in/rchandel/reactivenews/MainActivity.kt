@@ -8,6 +8,7 @@ import `in`.rchandel.reactivenews.viewmodels.MainViewModelFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,8 +32,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        startShimmer()
         binding.swipeRefresh.setOnRefreshListener {
             mainViewModel.getArticlesByCategory(cat)
+            startShimmer()
         }
 
         binding.chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     mainViewModel.getArticles()
                 }
+                startShimmer()
             }
         }
 
@@ -55,8 +59,21 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.articleLiveData.observe(this) {
             adapter.updateList(it)
+            stopShimmer()
             binding.swipeRefresh.isRefreshing = false
         }
 
+    }
+
+    private fun startShimmer() {
+        binding.shimmer.startShimmer()
+        binding.shimmer.visibility = View.VISIBLE
+        binding.swipeRefresh.visibility = View.GONE
+    }
+
+    private fun stopShimmer() {
+        binding.shimmer.stopShimmer()
+        binding.shimmer.visibility = View.GONE
+        binding.swipeRefresh.visibility = View.VISIBLE
     }
 }

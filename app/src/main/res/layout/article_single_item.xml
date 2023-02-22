@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_card"
+    app:cardBackgroundColor="@color/background_card"
     app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:contentPadding="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
                 android:layout_margin="@dimen/text_margin"
-                android:textColor="@color/black"
+                android:textColor="@color/text_heading"
                 app:layout_constraintTop_toBottomOf="@id/tvAuthor"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/text_heading"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@id/ivImage"
                     app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:textSize="12sp"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/text_second"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tvSource"
                     tools:text="12h" />
@@ -68,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:textSize="12sp"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/text_second"
                     app:layout_constraintStart_toEndOf="@id/tvAuthor"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="CNN" />

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Reactive News</string>
     <string name="news_photograph">News photograph</string>
-    <string name="today_s_headlines">Today\'s Headlines</string>
     <string name="today_headlines">Today\'s \nHeadlines</string>
 </resources>

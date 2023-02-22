@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_card"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivImageholder"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/placeholder_webp"
+            android:background="@color/shimmer"
+            android:contentDescription="@string/news_photograph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <View
+            android:id="@+id/tvHeadingholder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/text_margin"
+            android:background="@color/shimmer"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthorholder"
+            app:layout_constraintStart_toEndOf="@id/ivImageholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <View
+            android:id="@+id/tvAuthorholder"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toEndOf="@id/ivImageholder"
+            android:background="@color/shimmer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/tvTimestampholder"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_margin="8dp"
+            android:background="@color/shimmer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSourceholder"
+            tools:text="12h" />
+
+        <View
+            android:id="@+id/tvSourceholder"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:background="@color/shimmer"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toEndOf="@id/tvAuthorholder"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CNN" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
