@@ -14,14 +14,24 @@ class MainViewModel(private val repository: ArticleRepository) : ViewModel() {
     get() = repository.articles
 
     init {
-         viewModelScope.launch {
-            repository.getArticles()
-         }
+         getArticles()
+    }
+
+    fun getArticlesByCategory(category : String) {
+        viewModelScope.launch {
+            repository.getArticlesByCategory(category)
+        }
     }
 
     fun addArticle(article: Article) {
         viewModelScope.launch {
             repository.addArticle(article)
+        }
+    }
+
+    fun getArticles() {
+        viewModelScope.launch {
+            repository.getArticles()
         }
     }
 }
