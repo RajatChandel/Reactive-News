@@ -1,10 +1,13 @@
 package `in`.rchandel.reactivenews.data
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity
+@Parcelize
 data class Article(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @SerializedName("source") var source: Source? = Source(),
@@ -15,4 +18,4 @@ data class Article(
     @SerializedName("urlToImage") var urlToImage: String? = null,
     @SerializedName("publishedAt") var publishedAt: String? = null,
     @SerializedName("content") var content: String? = null
-)
+) : Parcelable
