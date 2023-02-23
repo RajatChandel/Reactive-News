@@ -35,11 +35,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
                 android:layout_margin="@dimen/text_margin"
-                android:textColor="@color/text_heading"
                 app:layout_constraintTop_toBottomOf="@id/tvAuthor"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="14sp"
+                style="@style/textBody"
                 tools:text="Strange DNA found in the desert offers lessons in the hunt for Mars life - The Washington Post" />
 
                 <TextView
@@ -47,8 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textColor="@color/text_heading"
-                    android:textSize="12sp"
+                    style="@style/textCaption"
                     app:layout_constraintStart_toEndOf="@id/ivImage"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Joel Achenbach" />
@@ -58,8 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_second"
+                    style="@style/textCaption"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tvSource"
                     tools:text="12h" />
@@ -69,8 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_second"
+                    style="@style/textCaption"
                     app:layout_constraintStart_toEndOf="@id/tvAuthor"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="CNN" />

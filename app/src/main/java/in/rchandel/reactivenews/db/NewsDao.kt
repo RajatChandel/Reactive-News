@@ -1,6 +1,7 @@
 package `in`.rchandel.reactivenews.db
 
 import `in`.rchandel.reactivenews.data.Article
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -16,4 +17,7 @@ interface NewsDao {
 
     @Query("SELECT * From Article")
     suspend fun getArticles() : List<Article>
+
+    @Query("SELECT * From Article WHERE Article.title=:title")
+    suspend fun getArticleByTitle(title: String) : Article
 }

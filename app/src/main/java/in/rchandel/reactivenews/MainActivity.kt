@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var mainViewModelFactory : MainViewModelFactory
+    lateinit var mainViewModelFactory: MainViewModelFactory
 
-    var cat = "general"
+    var cat = "All"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +34,16 @@ class MainActivity : AppCompatActivity() {
 
         startShimmer()
         binding.swipeRefresh.setOnRefreshListener {
-            mainViewModel.getArticlesByCategory(cat)
+            if (cat != "ALl") {
+                mainViewModel.getArticlesByCategory(cat)
+            } else {
+                mainViewModel.getArticles()
+            }
             startShimmer()
         }
 
         binding.chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
-            if(checkedIds.isNotEmpty()) {
+            if (checkedIds.isNotEmpty()) {
                 val selected = group.findViewById<Chip>(checkedIds.last())
                 if (selected.text.toString() != "All") {
                     cat = selected.text.toString()
@@ -52,11 +56,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         val adapter = ArticleAdapter(this)
-        binding.rvArticles.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+        binding.rvArticles.layoutManager =
+            LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
         binding.rvArticles.adapter = adapter
+
+        //Dagger
         (application as ReactiveNewsApplication).applicationComponent.inject(this)
+
+        //view Model
         mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
 
+        //Observer
         mainViewModel.articleLiveData.observe(this) {
             adapter.updateList(it)
             stopShimmer()

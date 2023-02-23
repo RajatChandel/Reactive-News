@@ -1,5 +1,6 @@
 package `in`.rchandel.reactivenews.di
 
+import `in`.rchandel.reactivenews.DetailsActivity
 import `in`.rchandel.reactivenews.MainActivity
 import android.content.Context
 import dagger.BindsInstance
@@ -11,6 +12,8 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(mainActivity: MainActivity)
+
+    fun inject(detailsActivity: DetailsActivity)
 
     @Component.Factory
     interface Factory{
