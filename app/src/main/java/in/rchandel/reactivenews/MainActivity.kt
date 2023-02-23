@@ -3,6 +3,7 @@ package `in`.rchandel.reactivenews
 import `in`.rchandel.reactivenews.adapter.ArticleAdapter
 import `in`.rchandel.reactivenews.data.Article
 import `in`.rchandel.reactivenews.databinding.ActivityMainBinding
+import `in`.rchandel.reactivenews.utils.NetworkUtils
 import `in`.rchandel.reactivenews.viewmodels.MainViewModel
 import `in`.rchandel.reactivenews.viewmodels.MainViewModelFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             startShimmer()
         }
 
+        if(!NetworkUtils.isOnline(this)) {
+            binding.chipGroup.visibility = View.INVISIBLE
+        }
         binding.chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
             if (checkedIds.isNotEmpty()) {
                 val selected = group.findViewById<Chip>(checkedIds.last())
@@ -68,9 +72,12 @@ class MainActivity : AppCompatActivity() {
 
         //Observer
         mainViewModel.articleLiveData.observe(this) {
-            adapter.updateList(it)
-            stopShimmer()
-            binding.swipeRefresh.isRefreshing = false
+            if(NetworkUtils.isOnline(this)) {
+                binding.chipGroup.visibility = View.INVISIBLE
+                }
+                adapter.updateList(it)
+                stopShimmer()
+                binding.swipeRefresh.isRefreshing = false
         }
 
     }

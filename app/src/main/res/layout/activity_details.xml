@@ -16,13 +16,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/detailsToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/detailsToolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         tools:src="@drawable/placeholder_webp"
@@ -36,7 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/textHeading5"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/ivImage"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -45,8 +62,11 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/textBody1"
-        android:layout_margin="8dp"
+        style="@style/heading6"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -55,13 +75,28 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/textBody"
+        style="@style/textBody1"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/readButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/radical_red"
+                android:text="@string/read_full_story"
+                android:layout_margin="8dp"
+                android:layout_gravity="bottom"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

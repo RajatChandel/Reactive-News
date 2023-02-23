@@ -2,4 +2,5 @@
     <string name="app_name">Reactive News</string>
     <string name="news_photograph">News photograph</string>
     <string name="today_headlines">Today\'s \nHeadlines</string>
+    <string name="read_full_story">Read full Story</string>
 </resources>
