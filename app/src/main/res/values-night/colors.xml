@@ -4,4 +4,6 @@
     <color name="text_second">#BDB8B8</color>
     <color name="background_full">#1D1B1B</color>
     <color name="background_card">#131314</color>
+    <color name="primary">#EEEEF4</color>
+    <color name="secondary">#1D1B1B</color>
 </resources>

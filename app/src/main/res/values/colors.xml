@@ -19,4 +19,8 @@
     <color name="text_second">#686767</color>
     <color name="background_full">#FFFFFF</color>
     <color name="background_card">#FFFFFF</color>
+
+    <color name="primary">#131314</color>
+    <color name="secondary">#FFFFFF</color>
+    <color name="blue">#0091EA</color>
 </resources>

@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'org.jetbrains.kotlin.android.extensions'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -33,9 +33,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    androidExtensions {
-        experimental = true
-    }
+
 
     kotlinOptions {
         jvmTarget = '1.8'
@@ -94,6 +92,7 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    implementation 'com.squareup.picasso:picasso:2.8'
 
 
 }

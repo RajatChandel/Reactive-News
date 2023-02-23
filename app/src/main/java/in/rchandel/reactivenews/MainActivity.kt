@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         startShimmer()
         binding.swipeRefresh.setOnRefreshListener {
-            if (cat != "ALl") {
+            if (cat != "All") {
                 mainViewModel.getArticlesByCategory(cat)
             } else {
                 mainViewModel.getArticles()
