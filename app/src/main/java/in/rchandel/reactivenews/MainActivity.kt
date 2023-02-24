@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
 
-    var cat = "All"
+    private var cat = "All"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             startShimmer()
         }
 
-        if(!NetworkUtils.isOnline(this)) {
+        if (!NetworkUtils.isOnline(this)) {
             binding.chipGroup.visibility = View.INVISIBLE
         }
         binding.chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //recycler View
         val adapter = ArticleAdapter(this)
         binding.rvArticles.layoutManager =
             LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
@@ -72,12 +74,20 @@ class MainActivity : AppCompatActivity() {
 
         //Observer
         mainViewModel.articleLiveData.observe(this) {
-            if(NetworkUtils.isOnline(this)) {
+            if (!NetworkUtils.isOnline(this)) {
                 binding.chipGroup.visibility = View.INVISIBLE
-                }
-                adapter.updateList(it)
-                stopShimmer()
-                binding.swipeRefresh.isRefreshing = false
+            } else {
+                binding.chipGroup.visibility = View.VISIBLE
+            }
+            if(it.isEmpty()) {
+                Toast.makeText(this, "Error shown", Toast.LENGTH_LONG).show()
+                showError()
+            } else {
+             hideError()
+            }
+            adapter.updateList(it)
+            stopShimmer()
+            binding.swipeRefresh.isRefreshing = false
         }
 
     }
@@ -86,11 +96,22 @@ class MainActivity : AppCompatActivity() {
         binding.shimmer.startShimmer()
         binding.shimmer.visibility = View.VISIBLE
         binding.swipeRefresh.visibility = View.GONE
+        hideError()
     }
 
     private fun stopShimmer() {
         binding.shimmer.stopShimmer()
         binding.shimmer.visibility = View.GONE
         binding.swipeRefresh.visibility = View.VISIBLE
+    }
+
+    private fun showError() {
+        binding.group.visibility = View.GONE
+        binding.error.visibility = View.VISIBLE
+    }
+
+    private fun hideError() {
+        binding.group.visibility = View.VISIBLE
+        binding.error.visibility = View.GONE
     }
 }

@@ -3,4 +3,12 @@
     <string name="news_photograph">News photograph</string>
     <string name="today_headlines">Today\'s \nHeadlines</string>
     <string name="read_full_story">Read full Story</string>
+    <string name="headlines_not_available">Headlines not available</string>
+    <string name="all">All</string>
+    <string name="business">Business</string>
+    <string name="sports">Sports</string>
+    <string name="health">Health</string>
+    <string name="technology">Technology</string>
+    <string name="general">General</string>
+    <string name="science">Science</string>
 </resources>

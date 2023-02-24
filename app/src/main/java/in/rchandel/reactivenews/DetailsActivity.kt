@@ -2,14 +2,18 @@ package `in`.rchandel.reactivenews
 
 import `in`.rchandel.reactivenews.data.Article
 import `in`.rchandel.reactivenews.databinding.ActivityDetailsBinding
+import `in`.rchandel.reactivenews.utils.NetworkUtils
 import `in`.rchandel.reactivenews.viewmodels.DetailsViewModel
 import `in`.rchandel.reactivenews.viewmodels.DetailsViewModelFactory
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
@@ -78,6 +82,16 @@ class DetailsActivity : AppCompatActivity() {
         binding.title.text = article.title
         binding.content.text = article.content
         binding.description.text = article.description
+
+        binding.readButton.setOnClickListener{
+            if(NetworkUtils.isOnline(this)) {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.setData(Uri.parse(article.url))
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Internet Not Available", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -90,6 +104,11 @@ class DetailsActivity : AppCompatActivity() {
         if (id == R.id.save) {
             detailsViewModel.saveArticle(article)
             item.setIcon(R.drawable.favorite_filled)
+            return true
+        }
+
+        if(id == android.R.id.home) {
+            supportFinishAfterTransition()
             return true
         }
         return super.onOptionsItemSelected(item)

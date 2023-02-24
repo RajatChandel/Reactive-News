@@ -9,6 +9,24 @@
     android:paddingEnd="8dp"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="swipeRefresh" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/headlines_not_available"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScroll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        style="@style/textBody1" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -46,8 +64,8 @@
                 android:id="@+id/all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All"
-                android:padding="8dp"
+                android:text="@string/all"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
@@ -55,48 +73,48 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Business"
-                android:padding="8dp"
+                android:text="@string/business"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sports"
-                android:padding="8dp"
+                android:text="@string/sports"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Health"
-                android:padding="8dp"
+                android:text="@string/health"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Technology"
-                android:padding="8dp"
+                android:text="@string/technology"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="General"
-                android:padding="8dp"
+                android:text="@string/general"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Science"
-                android:padding="8dp"
+                android:text="@string/science"
+                android:padding="@dimen/chip_padding"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 />
 
@@ -136,7 +154,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/horizontalScroll"
     app:layout_constraintBottom_toBottomOf="parent"
-    android:visibility="gone"
     >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvArticles"

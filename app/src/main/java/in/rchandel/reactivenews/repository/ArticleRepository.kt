@@ -24,27 +24,46 @@ class ArticleRepository @Inject constructor(
     val articles: LiveData<List<Article>>
         get() = _articles
 
-
     suspend fun getArticles() {
         if (NetworkUtils.isOnline(context)) {
-            val result = newsAPI.getArticles(Constants.API_KEY, Constants.country)
-            if (result.isSuccessful && result.body() != null) {
-                _articles.postValue(result.body()!!.articles)
+            try {
+                val result = newsAPI.getArticles(Constants.API_KEY, Constants.country)
+                if (result.isSuccessful && result.body() != null) {
+                    _articles.postValue(result.body()!!.articles)
+                } else {
+                    _articles.postValue(newsDb.getNewsDao().getArticles())
+                }
+            } catch (exception: Exception) {
+                _articles.postValue(newsDb.getNewsDao().getArticles())
             }
+
         } else {
             _articles.postValue(newsDb.getNewsDao().getArticles())
         }
     }
 
     suspend fun getArticlesByCategory(category: String) {
-        val result = newsAPI.getArticlesByCategory(Constants.API_KEY, category, Constants.country)
-        if (result.isSuccessful && result.body() != null) {
-            _articles.postValue(result.body()!!.articles)
+        if (NetworkUtils.isOnline(context)) {
+            try {
+                val result =
+                    newsAPI.getArticlesByCategory(Constants.API_KEY, category, Constants.country)
+                if (result.isSuccessful && result.body() != null) {
+                    _articles.postValue(result.body()!!.articles)
+                } else {
+                _articles.postValue(newsDb.getNewsDao().getArticles())
+            }
+            } catch(exception : Exception) {
+                _articles.postValue(newsDb.getNewsDao().getArticles())
+            }
+        } else {
+            _articles.postValue(newsDb.getNewsDao().getArticles())
         }
     }
 
     suspend fun addArticle(article: Article) {
-        newsDb.getNewsDao().addArticle(article)
+        if(newsDb.getNewsDao().getArticleByTitle(article.title) == null) {
+            newsDb.getNewsDao().addArticle(article)
+        }
     }
 
     suspend fun getArticleByTitle(title: String) {

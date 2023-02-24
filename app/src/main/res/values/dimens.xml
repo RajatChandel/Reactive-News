@@ -2,4 +2,5 @@
 <resources>
     <dimen name="margin_card">4dp</dimen>
     <dimen name="text_margin">8dp</dimen>
+    <dimen name="chip_padding">8dp</dimen>
 </resources>
