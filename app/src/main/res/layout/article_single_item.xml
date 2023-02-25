@@ -39,6 +39,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvSource"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:maxLines="3"
                 style="@style/textBody"
                 tools:text="Strange DNA found in the desert offers lessons in the hunt for Mars life - The Washington Post" />
 
