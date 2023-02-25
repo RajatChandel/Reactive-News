@@ -6,8 +6,8 @@ List Page with filtering by category
 
 Scrolling behaviour of list
 
-<img src="https://github.com/RajatChandel/Reactive-News/blob/master/scroll.gif" width="250" height="510"/>
+<img src="https://github.com/RajatChandel/Reactive-News/blob/master/scroll_2.gif" width="250" height="510"/>
 
 Shared view animation
 
-<img src="https://github.com/RajatChandel/Reactive-News/blob/master/shared.gif" width="250" height="510"/>
+<img src="https://github.com/RajatChandel/Reactive-News/blob/master/shared_2.gif" width="250" height="510"/>
