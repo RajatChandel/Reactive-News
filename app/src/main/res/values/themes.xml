@@ -3,7 +3,7 @@
 
     <style name="Theme.ReactiveNews" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/primary</item>
         <item name="colorOnPrimary">@color/secondary</item>
         <!-- Secondary brand color. -->
@@ -11,10 +11,12 @@
         <item name="colorSecondaryVariant">@color/secondary</item>
         <item name="colorOnSecondary">@color/primary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/eerie_black</item>
+    <!--    <item name="android:statusBarColor">@color/eerie_black</item>-->
         <item name="android:textColor">@color/text_heading</item>
         <item name="android:textColorPrimary">@color/text_second</item>
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -53,4 +55,20 @@
     <style name="textSubtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textColor">@color/text_heading</item>
     </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="collapse" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/primary</item>
+        <item name="background">@color/secondary</item>
+    </style>
+
+    <style name="Toolbar.TitleText.collapsed" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+
 </resources>

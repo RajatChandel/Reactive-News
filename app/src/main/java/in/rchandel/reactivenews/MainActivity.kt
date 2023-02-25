@@ -106,12 +106,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showError() {
-        binding.group.visibility = View.GONE
+       // binding.group.visibility = View.GONE
         binding.error.visibility = View.VISIBLE
     }
 
     private fun hideError() {
-        binding.group.visibility = View.VISIBLE
+     //   binding.group.visibility = View.VISIBLE
         binding.error.visibility = View.GONE
     }
 }
